@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Tableau Story — 5 Analytical Scenes | EV Market Analysis{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+  <span class="hero-tag" style="background-color: #fef3c7; color: #92400e; border: none;">Executive Storytelling</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">Tableau Analytical Story Walkthrough</h1>
+  <p style="color: #64748b; font-size: 1.05rem; max-width: 900px;">
+    A structured five-scene executive narrative synthesizing market adoption, competitive positioning, battery electrochemical trade-offs, and strategic roadmap recommendations.
+  </p>
+</div>
+
+<!-- Tableau Embedded Story Viewport -->
+<div class="tableau-wrapper" style="margin-bottom: 2.5rem;">
+  <div class="table-header-row" style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+    <div>
+      <h3 class="table-title">Interactive Tableau Story: 5 Analytical Scenes</h3>
+      <span style="font-size: 0.85rem; color: #64748b;">Tableau Story Point Name: <strong>EV_Market_Story</strong></span>
+    </div>
+    <a href="{{ story_url }}" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem; color: var(--primary);">
+      Open in Tableau Public ↗
+    </a>
+  </div>
+
+  <div class="tableau-iframe-box">
+    <iframe 
+      id="tableauStoryFrame"
+      src="{{ story_url }}?:embed=yes&:showVizHome=no&:toolbar=yes&:tabs=no" 
+      title="Tableau Electric Vehicle Market Analysis Story"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- 5 Analytical Scenes Detailed Walkthrough Cards -->
+<div style="margin-bottom: 2rem;">
+  <h2 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 1.5rem;">The Five Analytical Story Points</h2>
+
+  <!-- Scene 1 -->
+  <div class="table-card" style="border-left: 4px solid var(--primary); margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+      <span class="badge" style="background-color: #e0f2fe; color: #0284c7; font-size: 0.82rem;">Scene 1</span>
+      <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Data Source: IEA Global EV Data (2015–2023)</span>
+    </div>
+    <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Global EV Market Expansion and Rapid Sales Growth</h3>
+    <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+      Global electric vehicle registrations experienced exponential growth, escalating from 1.6 million units in 2018 to over 13.8 million in 2023. Pure battery electric vehicles (BEVs) consolidated their leadership, expanding from 62.8% of global EV volume in 2018 to 70.0% in 2023 (10.06 million BEVs). Despite post-pandemic macroeconomic volatility and interest rate adjustments, global BEV adoption sustained a 30.5% year-over-year expansion in 2023.
+    </p>
+    <div style="background-color: #f8fafc; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #334155;">
+      <strong>Key Analytical Takeaway:</strong> The global automotive transition has surpassed the early-adopter niche (2.5% market share) and is now firmly in the mass-market acceleration phase, with China exceeding 35% domestic penetration and Europe surpassing 21%.
+    </div>
+  </div>
+
+  <!-- Scene 2 -->
+  <div class="table-card" style="border-left: 4px solid #f59e0b; margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+      <span class="badge" style="background-color: #fef3c7; color: #d97706; font-size: 0.82rem;">Scene 2</span>
+      <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Data Source: CleanTechnica OEM Registrations & Corporate Reports</span>
+    </div>
+    <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Manufacturer Competition and Market Share Dynamics</h3>
+    <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+      The competitive landscape is characterized by a high degree of market concentration at the summit. In 2023, Tesla delivered 1,808,581 pure BEVs (19.1% global BEV share), while BYD produced 1,574,822 BEVs (16.6% global BEV share) and an additional 1,438,084 plug-in hybrids. Together, Tesla and BYD control 35.7% of all global BEV volume. In contrast, legacy automotive conglomerates (Volkswagen Group at 8.1%, Geely Group at 5.1%, BMW Group at 4.0%, and Mercedes-Benz at 2.3%) are grappling with legacy ICE transition costs and software platform delays.
+    </p>
+    <div style="background-color: #f8fafc; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #334155;">
+      <strong>Key Analytical Takeaway:</strong> Vertically integrated pure-play EV manufacturers enjoy structurally superior gross margins and rapid software deployment cycles compared to horizontally outsourced legacy OEM supply chains.
+    </div>
+  </div>
+
+  <!-- Scene 3 -->
+  <div class="table-card" style="border-left: 4px solid #10b981; margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+      <span class="badge" style="background-color: #d1fae5; color: #059669; font-size: 0.82rem;">Scene 3</span>
+      <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Data Source: OpenEV Data Specs (1,149 Models)</span>
+    </div>
+    <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Battery Technology Adoption: The LFP vs. NMC Bifurcation</h3>
+    <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+      Analysis of 1,149 vehicle configurations reveals an electrochemical market bifurcation. Nickel Manganese Cobalt (NMC) represents 80.1% of cataloged models, delivering an average driving range of 470.7 km with pack capacities averaging 81.3 kWh and an average price of $44,835. However, Lithium Iron Phosphate (LFP) is rapidly capturing entry-level and mass-market volume (19.9% of models), delivering an average range of 336.3 km with 55.9 kWh packs at an average price of $30,930—representing a 31% cost discount compared to NMC.
+    </p>
+    <div style="background-color: #f8fafc; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #334155;">
+      <strong>Key Analytical Takeaway:</strong> LFP is the catalyst for global EV price parity. With zero nickel and zero cobalt, superior thermal stability, and 3,500+ charge cycles, LFP is the optimal chemistry for urban mobility and commercial delivery fleets.
+    </div>
+  </div>
+
+  <!-- Scene 4 -->
+  <div class="table-card" style="border-left: 4px solid #6366f1; margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+      <span class="badge" style="background-color: #e0e7ff; color: #4338ca; font-size: 0.82rem;">Scene 4</span>
+      <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Data Source: EV-Database Benchmark Specs & Fast Charge Tests</span>
+    </div>
+    <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Driving Range Capability and Fast Charging Velocity</h3>
+    <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+      Consumer body style preference has overwhelmingly converged around the SUV segment (645 models, 450.4 km average range, 166.5 Wh/km consumption). Sedans achieve superior aerodynamic efficiency (155.3 Wh/km, 427.1 km avg range) with high-end models reaching up to 929.6 km. Fast-charging capability has transitioned from a secondary metric to a primary purchase driver: 800V silicon-carbide architectures (Hyundai E-GMP, Porsche Taycan, Lotus Eletre) sustain peak DC charging over 250 kW, reducing the 10-80% charge window from 45 minutes down to 18-22 minutes.
+    </p>
+    <div style="background-color: #f8fafc; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #334155;">
+      <strong>Key Analytical Takeaway:</strong> Range anxiety is being superseded by "charging velocity anxiety." Automakers adopting 800V architectures and high C-rate cells can achieve equivalent utility with smaller, lighter, and more economical battery packs.
+    </div>
+  </div>
+
+  <!-- Scene 5 -->
+  <div class="table-card" style="border-left: 4px solid #0f766e; margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+      <span class="badge" style="background-color: #ccfbf1; color: #0f766e; font-size: 0.82rem;">Scene 5</span>
+      <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Strategic Synthesis & Geographic Risk Assessment</span>
+    </div>
+    <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Evidence-Based Findings and Strategic Business Recommendations</h3>
+    <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+      Geographic analysis of 20 major Gigafactories reveals high supply-chain vulnerability: 52.8% of global operational manufacturing capacity (3.98 million annual units) is concentrated in China, compared to 23.5% in the United States and 15.7% in Germany. Strategic priorities for Western and Asian automakers must center on domestic battery cell localization, aggressive adoption of cell-to-pack (CTP) LFP configurations for sub-$35k price points, and standardized NACS / CCS2 charging hardware.
+    </p>
+    <div style="background-color: #f8fafc; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #334155;">
+      <strong>Key Analytical Takeaway:</strong> Automakers that fail to scale dedicated, low-cost LFP vehicle architectures and secure regional cell manufacturing will face severe market share attrition against vertically integrated competitors over the 2025–2030 horizon.
+    </div>
+  </div>
+</div>
+
+{% endblock %}

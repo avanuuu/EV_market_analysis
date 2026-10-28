@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Findings & Strategic Recommendations — EV Market Analysis{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+  <span class="hero-tag" style="background-color: #d1fae5; color: #047857; border: none;">Strategic Decision Support</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">Evidence-Based Findings & Business Recommendations</h1>
+  <p style="color: #64748b; font-size: 1.05rem; max-width: 900px;">
+    Actionable strategic roadmaps tailored for Market Strategy Directors, Automotive BI Managers, and Sustainable Mobility Analysts based on verified empirical analysis.
+  </p>
+</div>
+
+<!-- Persona 1: Market Strategy Director -->
+<div id="strategy" class="table-card" style="border-top: 4px solid var(--primary); margin-bottom: 2.5rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+    <span class="persona-badge persona-strategy">Persona 1</span>
+    <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Target: C-Suite Automotive Executives & Product Planners</span>
+  </div>
+
+  <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">
+    Market Strategy Director: Product Portfolio & Pricing Roadmaps
+  </h2>
+
+  <h4 style="font-size: 1.05rem; color: #0f172a; margin-top: 1rem; margin-bottom: 0.5rem;">Key Analytical Findings:</h4>
+  <ul style="padding-left: 1.5rem; line-height: 1.7; font-size: 0.92rem; color: #475569; margin-bottom: 1.5rem;">
+    <li><strong>SUV Market Domination:</strong> SUVs account for 645 out of 1,149 vehicle models (56.1%) and absorb the majority of consumer demand with an average driving range of 450.4 km at an average price of $44,800.</li>
+    <li><strong>The $30k–$35k Price Chasm:</strong> While premium EVs ($60k+) have saturated the early-adopter market, the fastest volume growth is occurring in the $30,000–$38,000 price bracket, predominantly enabled by LFP battery architectures.</li>
+    <li><strong>Urban Hatchback & Utility Opportunity:</strong> Compact hatchbacks and delivery vans demonstrate the highest energy efficiency (155 Wh/km), offering commercial fleet buyers compelling Total Cost of Ownership (TCO) parity.</li>
+  </ul>
+
+  <h4 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 0.5rem;">Actionable Strategic Recommendations:</h4>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.35rem;">1. Bifurcate Platform Architectures</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Deploy standardized LFP battery packs (50–60 kWh) for mass-market base trims ($28k–$35k) and reserve high-nickel NMC packs (80–100 kWh) exclusively for AWD long-range and premium trims.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.35rem;">2. Rationalize SUV Portfolios</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Introduce aerodynamically optimized crossover coupes (Cd &lt; 0.25) to deliver 480+ km of real range with a smaller 72 kWh battery, saving ~$1,200 per pack in cell materials.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.35rem;">3. Fast Charging as a Value Lever</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Prioritize 18–20 minute 10–80% charging velocity over excessive battery sizing (>100 kWh), directly addressing consumer charging anxiety while curbing curb weight.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Persona 2: Automotive BI Manager -->
+<div id="bi-manager" class="table-card" style="border-top: 4px solid #f59e0b; margin-bottom: 2.5rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+    <span class="persona-badge persona-bi">Persona 2</span>
+    <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Target: Competitive Intelligence & Regional Operations Heads</span>
+  </div>
+
+  <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">
+    Automotive Business Intelligence Manager: Competitive & Manufacturing Intelligence
+  </h2>
+
+  <h4 style="font-size: 1.05rem; color: #0f172a; margin-top: 1rem; margin-bottom: 0.5rem;">Key Analytical Findings:</h4>
+  <ul style="padding-left: 1.5rem; line-height: 1.7; font-size: 0.92rem; color: #475569; margin-bottom: 1.5rem;">
+    <li><strong>Duopolistic Scale Advantages:</strong> In 2023, Tesla (1.81M units) and BYD (1.57M BEVs + 1.44M PHEVs) generated massive economies of scale, operating production volumes 2.3x to 4x higher than Volkswagen (771k) or BMW (376k).</li>
+    <li><strong>Geographic Concentration Risk:</strong> 52.8% of global operational Gigafactory capacity (3.98M units across 8 facilities) is located in China, creating severe exposure to tariff escalations and export controls.</li>
+    <li><strong>Customer Retention & Charging Infrastructure:</strong> Brands with proprietary charging ecosystems (Tesla Superchargers) or 800V fast-charging capabilities (Hyundai, Kia, Porsche) maintain Net Promoter Scores above +68 compared to industry averages of +52.</li>
+  </ul>
+
+  <h4 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 0.5rem;">Actionable Operational Recommendations:</h4>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: #b45309; font-size: 0.95rem; margin-bottom: 0.35rem;">1. Regional Gigafactory Localization</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Accelerate operational ramp-up of North American and European cell plants to comply with Inflation Reduction Act (IRA) and EU Battery Passport requirements.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: #b45309; font-size: 0.95rem; margin-bottom: 0.35rem;">2. Software-Defined Vehicle (SDV) Parity</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Address the software gap: Consumer satisfaction data indicates infotainment and battery pre-conditioning reliability are the single highest driver of negative customer sentiment.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: #b45309; font-size: 0.95rem; margin-bottom: 0.35rem;">3. Universal Charging Standard Migration</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Transition vehicle architectures to native NACS connectors in North America and CCS2 in Europe to eliminate consumer adapter friction and boost charging satisfaction ratings.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Persona 3: Sustainable Mobility Research Analyst -->
+<div id="sustainability" class="table-card" style="border-top: 4px solid #10b981; margin-bottom: 2rem;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+    <span class="persona-badge persona-sustainability">Persona 3</span>
+    <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Target: Battery Researchers, ESG Directors & Policy Analysts</span>
+  </div>
+
+  <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">
+    Sustainable Mobility Research Analyst: Electrochemical & Lifecycle Analysis
+  </h2>
+
+  <h4 style="font-size: 1.05rem; color: #0f172a; margin-top: 1rem; margin-bottom: 0.5rem;">Key Analytical Findings:</h4>
+  <ul style="padding-left: 1.5rem; line-height: 1.7; font-size: 0.92rem; color: #475569; margin-bottom: 1.5rem;">
+    <li><strong>Critical Mineral Decoupling:</strong> LFP cells eliminate cobalt and nickel dependencies entirely, reducing raw material supply vulnerability and lowering cell-level cost to ~$75/kWh compared to ~$105/kWh for NMC 811.</li>
+    <li><strong>Lifecycle Durability Advantages:</strong> LFP cells demonstrate 3,500 to 4,000 full charge-discharge cycles before 80% state-of-health retention, extending EV operational life to >500,000 km—ideal for commercial fleet electrification.</li>
+    <li><strong>Mass Penalty of Extreme Range:</strong> Pickups and large SUVs require massive battery packs (120–212 kWh) that inflate curb weight above 2,600 kg, driving energy consumption to 225 Wh/km and negating urban efficiency gains.</li>
+  </ul>
+
+  <h4 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 0.5rem;">Actionable Research & Policy Recommendations:</h4>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: #047857; font-size: 0.95rem; margin-bottom: 0.35rem;">1. Cell-to-Pack (CTP) Commercialization</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Advance structural CTP 3.0 designs (such as BYD Blade and CATL Qilin) to increase LFP volumetric energy density from 160 Wh/kg to >200 Wh/kg, closing the gap with NMC.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: #047857; font-size: 0.95rem; margin-bottom: 0.35rem;">2. Sodium-Ion Integration for Cold Climates</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Scale pilot adoption of Sodium-Ion (Na-ion) cells for entry-level micro-mobility and cold-climate urban commuters due to superior sub-zero discharge performance and zero lithium content.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h5 style="color: #047857; font-size: 0.95rem; margin-bottom: 0.35rem;">3. Closed-Loop Battery Recycling Mandates</h5>
+      <p style="font-size: 0.88rem; color: #475569;">
+        Establish hydrometallurgical recycling pipelines capable of recovering >95% of lithium, nickel, and cobalt from end-of-life EV packs to mitigate environmental impact.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

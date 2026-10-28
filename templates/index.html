@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Executive EV Market Analysis — Intelligence Platform{% endblock %}
+
+{% block content %}
+
+<!-- Hero Banner -->
+<section class="hero">
+  <span class="hero-tag">Automotive Intelligence & Strategic Insights</span>
+  <h1 class="hero-title">Electric Vehicle (EV) Market Analysis</h1>
+  <p class="hero-subtitle">
+    An end-to-end Business Intelligence platform delivering macro adoption trends, OEM market share dynamics, battery chemistry bifurcation (LFP vs. NMC), driving range optimization, and global Gigafactory manufacturing distribution.
+  </p>
+  <div class="hero-actions">
+    <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary">
+      <span>📊 Explore Interactive Tableau Dashboards</span>
+    </a>
+    <a href="{{ url_for('main.story') }}" class="btn btn-secondary">
+      <span>📖 View 5-Scene Tableau Story</span>
+    </a>
+    <a href="{{ url_for('main.vehicles') }}" class="btn btn-secondary">
+      <span>🚘 Browse 1,149 Vehicle Catalog</span>
+    </a>
+  </div>
+</section>
+
+<!-- Executive KPI Cards -->
+<section>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Global BEV Sales (2023)</div>
+      <div class="kpi-value">{{ kpis.global_bev_sales_2023 }}</div>
+      <div class="kpi-subtext">
+        <span class="trend-up">▲ {{ kpis.global_yoy_growth_pct }} YoY</span> vs 2022
+      </div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Market Leaders (BEV Share)</div>
+      <div class="kpi-value" style="font-size: 1.45rem;">Tesla & BYD</div>
+      <div class="kpi-subtext">35.7% combined global BEV share</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Average Driving Range</div>
+      <div class="kpi-value">{{ kpis.avg_driving_range_km }} <span style="font-size: 1rem; color: #64748b;">km</span></div>
+      <div class="kpi-subtext">Across 1,149 cataloged vehicle models</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Average Battery Capacity</div>
+      <div class="kpi-value">{{ kpis.avg_battery_capacity_kwh }} <span style="font-size: 1rem; color: #64748b;">kWh</span></div>
+      <div class="kpi-subtext">Gross capacity (usable avg: 71.6 kWh)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Average Base Price</div>
+      <div class="kpi-value">{{ kpis.avg_vehicle_price_usd }}</div>
+      <div class="kpi-subtext">MSRP baseline (range: $22.6k - $195k)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Consumer Satisfaction</div>
+      <div class="kpi-value">{{ kpis.avg_customer_rating }} <span style="font-size: 1rem; color: #64748b;">/ 5.0</span></div>
+      <div class="kpi-subtext">Automotive ownership benchmark</div>
+    </div>
+  </div>
+</section>
+
+<!-- Business Personas Section -->
+<section style="margin-bottom: 2.5rem;">
+  <div style="margin-bottom: 1.5rem;">
+    <h2 style="font-size: 1.6rem; font-weight: 800; color: #0f172a;">Tailored Stakeholder Intelligence</h2>
+    <p style="color: #64748b; font-size: 0.95rem;">Empowering strategic automotive decision-makers with verified empirical evidence.</p>
+  </div>
+
+  <div class="persona-grid">
+    <div class="persona-card">
+      <span class="persona-badge persona-strategy">Persona 1</span>
+      <h3 class="persona-title">Market Strategy Director</h3>
+      <p class="persona-desc">
+        Identifies high-growth vehicle segments, monitors consumer price sensitivities, and optimizes portfolio positioning between mass-market and premium tiers.
+      </p>
+      <ul class="persona-list">
+        <li><strong>SUV Segment Dominance:</strong> SUVs capture >55% of consumer demand with 450 km average range.</li>
+        <li><strong>Affordability Inflection:</strong> LFP battery models lower entry price to $30.9k average vs $44.8k for NMC.</li>
+        <li><strong>Product Opportunities:</strong> Emerging demand for sub-$30k compact urban crossovers and electric utility vans.</li>
+      </ul>
+      <a href="{{ url_for('main.findings') }}#strategy" class="btn btn-secondary" style="color: var(--primary); background: transparent; padding-left: 0; margin-top: 1rem;">Read Strategy Analysis →</a>
+    </div>
+
+    <div class="persona-card">
+      <span class="persona-badge persona-bi">Persona 2</span>
+      <h3 class="persona-title">Automotive BI Manager</h3>
+      <p class="persona-desc">
+        Tracks OEM competitive sales performance, geographical market share shifts, factory utilization, and platform profitability.
+      </p>
+      <ul class="persona-list">
+        <li><strong>Competitive Duopoly:</strong> Tesla (1.81M units) and BYD (1.57M units) outpace traditional OEMs by 2.3x.</li>
+        <li><strong>Regional Specialization:</strong> China leads global volume with 60% domestic EV penetration; USA reaches 8.5%.</li>
+        <li><strong>Manufacturing Footprint:</strong> 52.8% of global Gigafactory production capacity remains concentrated in China.</li>
+      </ul>
+      <a href="{{ url_for('main.findings') }}#bi-manager" class="btn btn-secondary" style="color: var(--primary); background: transparent; padding-left: 0; margin-top: 1rem;">Read BI Manager Briefing →</a>
+    </div>
+
+    <div class="persona-card">
+      <span class="persona-badge persona-sustainability">Persona 3</span>
+      <h3 class="persona-title">Sustainable Mobility Analyst</h3>
+      <p class="persona-desc">
+        Studies electrochemical battery transitions, lifecycle supply-chain constraints, charging velocity, and energy consumption metrics.
+      </p>
+      <ul class="persona-list">
+        <li><strong>Chemistry Transition:</strong> LFP adoption eliminates cobalt and nickel dependencies while offering 3,500+ cycles.</li>
+        <li><strong>Fast Charging Velocity:</strong> 800V silicon-carbide architectures achieve 10-80% top-up in under 22 minutes.</li>
+        <li><strong>Fleet Efficiency:</strong> Aerodynamic sedans achieve 155 Wh/km compared to heavy pickups requiring >225 Wh/km.</li>
+      </ul>
+      <a href="{{ url_for('main.findings') }}#sustainability" class="btn btn-secondary" style="color: var(--primary); background: transparent; padding-left: 0; margin-top: 1rem;">Read Sustainability Report →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Executive Summary Tables Preview -->
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+  <!-- Top Manufacturers Table -->
+  <div class="table-card">
+    <div class="table-header-row">
+      <h3 class="table-title">Top 5 Global BEV Manufacturers (2023)</h3>
+      <a href="{{ url_for('main.overview') }}" style="font-size: 0.85rem; color: var(--primary); text-decoration: none; font-weight: 600;">View Full Table →</a>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Manufacturer</th>
+          <th>Country</th>
+          <th>BEV Sales (Units)</th>
+          <th>Market Share</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for oem in top_oems[:5] %}
+        <tr>
+          <td><strong>#{{ oem.rank }}</strong></td>
+          <td>
+            <strong>{{ oem.name }}</strong>
+            {% if oem.is_pure_ev %}<span class="badge badge-pure">Pure EV</span>{% endif %}
+          </td>
+          <td>{{ oem.country }}</td>
+          <td>{{ "{:,.0f}".format(oem.units_sold) }}</td>
+          <td><strong>{{ oem.market_share_pct }}%</strong></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Annual Adoption Growth -->
+  <div class="table-card">
+    <div class="table-header-row">
+      <h3 class="table-title">Global EV Sales Expansion (2018–2023)</h3>
+      <a href="{{ url_for('main.overview') }}" style="font-size: 0.85rem; color: var(--primary); text-decoration: none; font-weight: 600;">View Full Trend →</a>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>BEV Units</th>
+          <th>PHEV Units</th>
+          <th>Total EV Volume</th>
+          <th>BEV Share</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in trends[-5:]|reverse %}
+        <tr>
+          <td><strong>{{ t.year }}</strong></td>
+          <td>{{ "{:,.0f}".format(t.bev_units) }}</td>
+          <td>{{ "{:,.0f}".format(t.phev_units) }}</td>
+          <td><strong>{{ "{:,.0f}".format(t.total_units) }}</strong></td>
+          <td><span class="trend-up">{{ t.bev_share_pct }}%</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

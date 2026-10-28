@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Methodology & Data Governance — EV Market Analysis{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+  <span class="hero-tag" style="background-color: #ede9fe; color: #6d28d9; border: none;">Data Governance & Engineering</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">Methodology, Database Architecture & Governance</h1>
+  <p style="color: #64748b; font-size: 1.05rem; max-width: 900px;">
+    Comprehensive data provenance, relational database schema, data harmonization rules, data quality metrics, and governance disclosures.
+  </p>
+</div>
+
+<!-- Data Provenance & Sources Grid -->
+<div class="table-card" style="margin-bottom: 2rem;">
+  <h3 class="table-title" style="margin-bottom: 1.25rem;">1. Data Acquisition & Legal Provenance</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Dataset Name</th>
+        <th>Primary Source</th>
+        <th>License</th>
+        <th>Raw Rows</th>
+        <th>Cleaned Rows</th>
+        <th>Key Attributes Acquired</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>OpenEV Data Specifications</strong></td>
+        <td><a href="https://github.com/open-ev-data/open-ev-data-dataset" target="_blank" style="color: var(--primary);">OpenEV Data Repository (v1.24.0)</a></td>
+        <td>CC-BY-4.0 (Open Access)</td>
+        <td>1,189</td>
+        <td>1,149</td>
+        <td>Make, Model, Year, Trim, Battery Gross/Net (kWh), Chemistry, DC/AC Charge kW, WLTP/EPA Range.</td>
+      </tr>
+      <tr>
+        <td><strong>EV Specs & Pricing Benchmark</strong></td>
+        <td><a href="https://ev-database.org" target="_blank" style="color: var(--primary);">EV-Database / Kaggle Mirror</a></td>
+        <td>CC0: Public Domain</td>
+        <td>102</td>
+        <td>102</td>
+        <td>Base MSRP (EUR), Energy Efficiency (Wh/km), Fast Charge speed, Segment, BodyStyle.</td>
+      </tr>
+      <tr>
+        <td><strong>IEA Global EV Outlook 2024</strong></td>
+        <td><a href="https://www.iea.org/data-and-statistics/data-tools/global-ev-data-explorer" target="_blank" style="color: var(--primary);">International Energy Agency (IEA)</a></td>
+        <td>CC BY 4.0</td>
+        <td>12,654</td>
+        <td>872</td>
+        <td>Historical annual sales, stock, and chargers across China, USA, Europe, World (2010–2023).</td>
+      </tr>
+      <tr>
+        <td><strong>Consumer Study Benchmarks</strong></td>
+        <td>J.D. Power EVX & Consumer Reports Index</td>
+        <td>Benchmark Derivation</td>
+        <td>20</td>
+        <td>20</td>
+        <td>Overall satisfaction, range satisfaction, charging experience, reliability score, Net Promoter Score.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Relational Database Schema & Architecture -->
+<div class="table-card" style="margin-bottom: 2rem;">
+  <h3 class="table-title" style="margin-bottom: 1rem;">2. Relational Database Schema (MySQL 8.0+ / 9.0+)</h3>
+  <p style="color: #475569; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">
+    The database <code style="background-color: #e2e8f0; padding: 0.2rem 0.4rem; border-radius: 4px;">ev_market_db</code> is structured as a normalized relational schema (Third Normal Form) in MySQL with InnoDB storage engine, foreign key cascade constraints, unique keys, and analytical indexes.
+  </p>
+
+  <div style="background-color: #0f172a; color: #f8fafc; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.85rem; line-height: 1.5; overflow-x: auto; margin-bottom: 1.5rem;">
+<pre>
+  +------------------+         1:N         +----------------------+
+  |  MANUFACTURERS   | &lt;------------------ |       VEHICLES       |
+  |------------------|                     |----------------------|
+  | manufacturer_id  | [PK]                | vehicle_id           | [PK]
+  | name             | [UNIQUE]            | manufacturer_id      | [FK]
+  | country          |                     | model_name           |
+  | headquarters     |                     | variant_name         |
+  | parent_group     |                     | model_year           |
+  | founded_year     |                     | vehicle_category     |
+  | is_pure_ev_player|                     | drivetrain           |
+  +------------------+                     | battery_tech_id      | [FK]
+        |        |                         | battery_gross_kwh    |
+    1:N |    1:N |                         | driving_range_km     |
+        v        v                         | base_price_usd       |
+  +----------+ +--------------------+      +----------------------+
+  |  SALES   | |  CUSTOMER_RATINGS  |                 |
+  |----------| |--------------------|             N:1 |
+  | sales_id | | rating_id          |                 v
+  | year     | | manufacturer_id[FK]|      +----------------------+
+  | region   | | overall_score      |      | BATTERY_TECHNOLOGIES |
+  | units    | | range_satisfaction |      |----------------------|
+  +----------+ +--------------------+      | battery_tech_id [PK] |
+                                           | chemistry_code [UNQ] |
+                                           | chemistry_name       |
+                                           | energy_density_wh_kg |
+                                           +----------------------+
+</pre>
+  </div>
+
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <a href="{{ url_for('static', filename='../database/schema.sql') }}" class="btn btn-secondary" style="color: var(--primary);">View schema.sql</a>
+    <a href="{{ url_for('static', filename='../database/analysis_queries.sql') }}" class="btn btn-secondary" style="color: var(--primary);">View analysis_queries.sql</a>
+    <a href="{{ url_for('static', filename='../database/validation_queries.sql') }}" class="btn btn-secondary" style="color: var(--primary);">View validation_queries.sql</a>
+  </div>
+</div>
+
+<!-- Data Cleaning & Quality Audit Report -->
+<div class="table-card" style="margin-bottom: 2rem;">
+  <h3 class="table-title" style="margin-bottom: 1rem;">3. Data Harmonization Pipeline & Quality Audit</h3>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 0.95rem; color: #0f172a; margin-bottom: 0.5rem;">Rule 1: OEM Canonical Resolution</h4>
+      <p style="font-size: 0.85rem; color: #64748b;">
+        Brand variations (e.g. "Mercedes", "VW", "Skoda", "Citroen") standardized to official corporate entities ("Mercedes-Benz", "Volkswagen", "Škoda", "Citroën").
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 0.95rem; color: #0f172a; margin-bottom: 0.5rem;">Rule 2: Battery Chemistry Taxonomy</h4>
+      <p style="font-size: 0.85rem; color: #64748b;">
+        Mapped unstructured battery labels to standardized electrochemical codes: LFP, NMC, NCA, Sodium-Ion, and Solid-State.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 0.95rem; color: #0f172a; margin-bottom: 0.5rem;">Rule 3: Automotive Category Mapping</h4>
+      <p style="font-size: 0.85rem; color: #64748b;">
+        Harmonized 15 raw body styles into 6 standardized categories: SUV, Sedan, Hatchback, Pickup, Van, and Sports Car.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 0.95rem; color: #0f172a; margin-bottom: 0.5rem;">Rule 4: Currency Normalization</h4>
+      <p style="font-size: 0.85rem; color: #64748b;">
+        Base prices converted from EUR to USD using 1.08 baseline exchange rate with battery-cost cross-validation.
+      </p>
+    </div>
+  </div>
+
+  {% if dq_report %}
+  <div style="background-color: #f1f5f9; padding: 1.25rem; border-radius: 8px; font-size: 0.85rem;">
+    <h4 style="margin-bottom: 0.5rem; color: #0f172a;">Automated Data Pipeline Audit Log</h4>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+      <div>Execution Timestamp: <strong>{{ dq_report.execution_timestamp }}</strong></div>
+      <div>Pipeline Status: <strong style="color: #10b981;">{{ dq_report.data_pipeline_status }}</strong></div>
+      <div>Duplicate Rows Resolved: <strong>{{ dq_report.validation_metrics.duplicate_vehicles_detected_and_resolved }}</strong></div>
+      <div>Null Primary Keys: <strong>{{ dq_report.validation_metrics.null_values_in_primary_keys }}</strong></div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Assumptions & Disclosures -->
+<div class="table-card">
+  <h3 class="table-title" style="margin-bottom: 1rem;">4. Assumptions, Disclosures & Limitations</h3>
+  <ul style="padding-left: 1.5rem; line-height: 1.7; font-size: 0.92rem; color: #475569;">
+    <li><strong>WLTP vs. EPA Range Normalization:</strong> Driving ranges reported under the EPA cycle were adjusted to WLTP equivalent using a 1.12x conversion factor where direct WLTP testing was pending.</li>
+    <li><strong>Net Usable Battery Capacity:</strong> When net battery capacity was undocumented, it was modeled at 94% of gross pack capacity reflecting standard buffer configurations.</li>
+    <li><strong>Customer Satisfaction Benchmarking:</strong> Consumer ratings are derived from aggregate manufacturer and category studies (J.D. Power EVX Ownership Study and Consumer Reports EV Reliability Index). They are explicitly modeled at the brand/category level rather than individual vehicle level.</li>
+    <li><strong>Macro Sales vs. OEM Volume:</strong> Regional sales totals represent macro country registrations from the IEA, while manufacturer-specific sales reflect the global competitive set. Macro totals and OEM breakdowns are queried with mutually exclusive criteria in SQL to prevent double-counting.</li>
+  </ul>
+</div>
+
+{% endblock %}

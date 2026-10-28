@@ -1,0 +1,21 @@
+location_id,manufacturer_id,plant_name,country,city,region,facility_type,annual_capacity_units,operational_since,latitude,longitude
+1,65,Gigafactory Texas,United States,Austin,North America,Gigafactory / Final Assembly,500000,2022,30.222,-97.617
+2,65,Gigafactory Shanghai,China,Shanghai,Asia Pacific,Gigafactory / Final Assembly,950000,2019,30.873,121.774
+3,65,Gigafactory Berlin-Brandenburg,Germany,Grünheide,Europe,Gigafactory / Final Assembly,375000,2022,52.397,13.791
+4,65,Fremont Factory,United States,Fremont,North America,Vehicle & Battery Assembly,550000,2010,37.493,-121.945
+5,5,Shenzhen Mega Plant,China,Shenzhen,Asia Pacific,Blade Battery & Vehicle Assembly,600000,2003,22.701,114.332
+6,5,Xi'an Production Base,China,Xi'an,Asia Pacific,Final Vehicle Assembly,900000,2014,34.265,108.954
+7,5,Changsha Assembly Facility,China,Changsha,Asia Pacific,Commercial Bus & Car Assembly,400000,2012,28.228,112.938
+8,68,Zwickau EV Hub,Germany,Zwickau,Europe,Dedicated MEB EV Plant,330000,2019,50.739,12.482
+9,68,Anting MEB Plant,China,Shanghai,Asia Pacific,SAIC-VW EV Joint Facility,300000,2020,31.298,121.168
+10,68,Chattanooga Plant,United States,Chattanooga,North America,ID.4 North America Hub,150000,2022,35.08,-85.132
+11,4,Dingolfing Plant,Germany,Dingolfing,Europe,iX & i7 Assembly Hub,280000,2020,48.625,12.498
+12,4,BBA Tiexi Plant,China,Shenyang,Asia Pacific,BMW Brilliance EV Facility,350000,2012,41.805,123.328
+13,45,Factory 56 Sindelfingen,Germany,Sindelfingen,Europe,EQS Luxury EV Manufacturing,200000,2020,48.706,9.003
+14,45,Tuscaloosa Plant,United States,Tuscaloosa,North America,EQE & EQS SUV Production,120000,2022,33.209,-87.569
+15,29,Ulsan Plant 1 (E-GMP),South Korea,Ulsan,Asia Pacific,Ioniq Dedicated EV Plant,300000,2021,35.538,129.311
+16,29,Metaplant America,United States,"Bryan County, GA",North America,Dedicated EV Gigafactory,300000,2024,32.128,-81.448
+17,58,Normal Plant,United States,"Normal, IL",North America,"R1T, R1S & EDV Van Plant",150000,2021,40.518,-89.034
+18,48,NeoPark Hefei Plant,China,Hefei,Asia Pacific,Intelligent EV Manufacturing Hub,300000,2022,31.82,117.227
+19,69,Taizhou Manufacturing Plant,China,Taizhou,Asia Pacific,CMA EV Platform Assembly,180000,2017,28.656,121.42
+20,64,Sanand Facility,India,"Sanand, Gujarat",Asia Pacific,Nexon & Tiago EV Production,300000,2023,22.986,72.378

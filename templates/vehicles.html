@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}Vehicle Specification Catalog — 1,149 Models | EV Market Analysis{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+  <span class="hero-tag" style="background-color: #d1fae5; color: #065f46; border: none;">Granular Engineering Data</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">Electric Vehicle Database Explorer</h1>
+  <p style="color: #64748b; font-size: 1rem; max-width: 900px;">
+    Search, filter, and inspect verified technical specifications, battery capacities, driving ranges, and market pricing for 1,149 electric vehicle configurations.
+  </p>
+</div>
+
+<!-- Search and Filter Form -->
+<div class="table-card" style="margin-bottom: 1.5rem; padding: 1.25rem;">
+  <form method="GET" action="{{ url_for('main.vehicles') }}" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+    <!-- Search Query -->
+    <div style="flex: 1; min-width: 220px;">
+      <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #64748b; margin-bottom: 0.35rem; text-transform: uppercase;">Search Model / Make</label>
+      <input 
+        type="text" 
+        name="search" 
+        value="{{ search }}" 
+        placeholder="e.g. Model Y, Ioniq 5, Seal, Taycan..." 
+        style="width: 100%; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;"
+      >
+    </div>
+
+    <!-- Category Filter -->
+    <div style="min-width: 160px;">
+      <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #64748b; margin-bottom: 0.35rem; text-transform: uppercase;">Category</label>
+      <select name="category" style="width: 100%; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem; background-color: white;">
+        <option value="All" {% if selected_category == 'All' %}selected{% endif %}>All Categories</option>
+        {% for cat in categories %}
+        <option value="{{ cat }}" {% if selected_category == cat %}selected{% endif %}>{{ cat }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Manufacturer Filter -->
+    <div style="min-width: 180px;">
+      <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #64748b; margin-bottom: 0.35rem; text-transform: uppercase;">Manufacturer</label>
+      <select name="manufacturer" style="width: 100%; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem; background-color: white;">
+        <option value="All" {% if selected_mfg == 'All' %}selected{% endif %}>All Manufacturers</option>
+        {% for mfg in manufacturers %}
+        <option value="{{ mfg }}" {% if selected_mfg == mfg %}selected{% endif %}>{{ mfg }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Battery Chemistry Filter -->
+    <div style="min-width: 160px;">
+      <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #64748b; margin-bottom: 0.35rem; text-transform: uppercase;">Battery Chemistry</label>
+      <select name="chemistry" style="width: 100%; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem; background-color: white;">
+        <option value="All" {% if selected_chem == 'All' %}selected{% endif %}>All Chemistries</option>
+        {% for chem in chemistries %}
+        <option value="{{ chem }}" {% if selected_chem == chem %}selected{% endif %}>{{ chem }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Action Buttons -->
+    <div>
+      <button type="submit" class="btn btn-primary" style="padding: 0.55rem 1.25rem;">Filter</button>
+      <a href="{{ url_for('main.vehicles') }}" class="btn btn-secondary" style="color: #64748b; padding: 0.55rem 1rem;">Reset</a>
+    </div>
+  </form>
+</div>
+
+<!-- Results Counter -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.9rem; color: #64748b;">
+  <span>Showing <strong>{{ vehicles|length }}</strong> of <strong>{{ total_records }}</strong> matching vehicle configurations</span>
+  <span>Page <strong>{{ page }}</strong> of <strong>{{ total_pages }}</strong></span>
+</div>
+
+<!-- Vehicles Table -->
+<div class="table-card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Variant</th>
+        <th>Year</th>
+        <th>Category</th>
+        <th>Drivetrain</th>
+        <th>Battery Tech</th>
+        <th>Pack Size</th>
+        <th>Range (WLTP)</th>
+        <th>Efficiency</th>
+        <th>10-80% Chg</th>
+        <th>Base MSRP</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for v in vehicles %}
+      <tr>
+        <td><strong>{{ v['Manufacturer'] }}</strong></td>
+        <td><strong>{{ v['Model'] }}</strong></td>
+        <td style="color: #64748b; font-size: 0.85rem;">{{ v['Variant'] }}</td>
+        <td>{{ v['Model Year'] }}</td>
+        <td>{{ v['Vehicle Category'] }}</td>
+        <td>{{ v['Drivetrain'] }}</td>
+        <td>
+          <span class="badge {% if v['Battery Technology Code'] == 'NMC' %}badge-nmc{% elif v['Battery Technology Code'] == 'LFP' %}badge-lfp{% else %}badge-nca{% endif %}">
+            {{ v['Battery Technology Code'] }}
+          </span>
+        </td>
+        <td>{{ v['Battery Capacity Gross (kWh)'] }} kWh</td>
+        <td><strong>{{ v['Driving Range (km)'] }} km</strong></td>
+        <td>{{ v['Energy Consumption (Wh/km)'] }} Wh/km</td>
+        <td>{{ v['10-80% Charging Time (min)'] }}m</td>
+        <td><strong>${{ "{:,.0f}".format(v['Base Price (USD)']) }}</strong></td>
+        <td><span style="color: #f59e0b; font-weight: 600;">★ {{ v['Customer Rating (1-5)'] }}</span></td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="13" style="text-align: center; padding: 2.5rem; color: #64748b;">
+          No vehicle configurations matched your filter criteria. Try adjusting your search query.
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  {% if total_pages > 1 %}
+  <div class="pagination">
+    <a href="{{ url_for('main.vehicles', page=page-1, search=search, category=selected_category, manufacturer=selected_mfg, chemistry=selected_chem) }}" 
+       class="page-btn {% if page <= 1 %}disabled{% endif %}">
+      « Previous
+    </a>
+
+    {% for p in range(1, total_pages + 1) %}
+      {% if p == 1 or p == total_pages or (p >= page - 2 and p <= page + 2) %}
+        <a href="{{ url_for('main.vehicles', page=p, search=search, category=selected_category, manufacturer=selected_mfg, chemistry=selected_chem) }}" 
+           class="page-btn {% if p == page %}active{% endif %}">
+          {{ p }}
+        </a>
+      {% elif p == page - 3 or p == page + 3 %}
+        <span style="padding: 0 0.5rem; color: #94a3b8;">...</span>
+      {% endif %}
+    {% endfor %}
+
+    <a href="{{ url_for('main.vehicles', page=page+1, search=search, category=selected_category, manufacturer=selected_mfg, chemistry=selected_chem) }}" 
+       class="page-btn {% if page >= total_pages %}disabled{% endif %}">
+      Next »
+    </a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

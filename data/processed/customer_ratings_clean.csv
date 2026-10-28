@@ -1,0 +1,21 @@
+rating_id,manufacturer_id,vehicle_category,survey_year,sample_size,overall_score,range_satisfaction,charging_experience,reliability_score,build_quality_score,software_infotainment_score,value_for_money,net_promoter_score,source_note
+1,65,Sedan,2023,2840,4.45,4.8,4.9,4.1,3.8,4.75,4.3,68,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+2,65,SUV,2023,3120,4.5,4.75,4.88,4.15,3.85,4.7,4.35,71,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+3,5,Sedan,2023,2450,4.35,4.4,4.3,4.45,4.3,4.2,4.8,62,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+4,5,SUV,2023,2900,4.4,4.45,4.35,4.5,4.35,4.25,4.75,65,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+5,29,SUV,2023,1680,4.55,4.5,4.7,4.6,4.4,4.3,4.65,72,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+6,33,SUV,2023,1420,4.52,4.48,4.65,4.55,4.35,4.28,4.6,70,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+7,4,Sedan,2023,1150,4.6,4.45,4.35,4.65,4.85,4.6,3.9,69,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+8,4,SUV,2023,1340,4.62,4.5,4.4,4.7,4.88,4.62,3.85,70,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+9,54,Sports Car,2023,890,4.78,4.35,4.6,4.8,4.95,4.55,3.4,76,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+10,68,Hatchback,2023,1920,4.05,4.1,4.15,4.2,4.1,3.6,4.2,48,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+11,68,SUV,2023,2100,4.12,4.15,4.2,4.25,4.15,3.65,4.15,52,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+12,58,Pickup,2023,980,4.58,4.6,4.4,4.25,4.5,4.65,4.0,74,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+13,58,SUV,2023,840,4.6,4.62,4.42,4.28,4.55,4.68,4.05,75,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+14,21,SUV,2023,1850,4.22,4.2,4.15,4.1,4.25,4.3,4.2,54,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+15,21,Pickup,2023,1200,4.35,4.15,4.1,4.2,4.3,4.35,4.3,60,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+16,48,SUV,2023,1100,4.5,4.4,4.95,4.35,4.6,4.7,4.1,68,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+17,45,Sedan,2023,950,4.55,4.6,4.3,4.5,4.9,4.7,3.6,66,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+18,45,SUV,2023,1050,4.58,4.58,4.35,4.55,4.92,4.72,3.55,68,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+19,69,SUV,2023,1280,4.42,4.25,4.3,4.5,4.65,4.4,4.15,64,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark
+20,10,Hatchback,2023,1750,4.18,4.3,3.8,4.4,3.9,3.95,4.7,56,J.D. Power EVX Ownership Study & Consumer Reports EV Reliability Benchmark

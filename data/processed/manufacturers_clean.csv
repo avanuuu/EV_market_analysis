@@ -1,0 +1,75 @@
+manufacturer_id,name,country,headquarters_city,parent_group,founded_year,is_pure_ev_player
+1,Aiways,United States,Global,Aiways,2000,False
+2,Audi,Germany,Ingolstadt,Volkswagen Group,1909,False
+3,Automobili Pininfarina,Italy,Cambiano,Mahindra & Mahindra,2018,True
+4,BMW,Germany,Munich,BMW Group,1916,False
+5,BYD,China,Shenzhen,BYD Auto Co.,1995,False
+6,Byton,United States,Global,Byton,2000,False
+7,Cadillac,United States,"Detroit, MI",General Motors,1902,False
+8,Changan,China,Chongqing,Changan Automobile,1862,False
+9,Chery,China,Wuhu,Chery Automobile,1997,False
+10,Chevrolet,United States,"Detroit, MI",General Motors,1911,False
+11,Citroën,France,Poissy,Stellantis,1919,False
+12,Cupra,Spain,Martorell,Volkswagen Group,2018,False
+13,DS,International,Global,DS,2000,False
+14,DS Automobiles,France,Paris,Stellantis,2014,False
+15,Dacia,Romania,Mioveni,Renault Group,1966,False
+16,Dongfeng,China,Wuhan,Dongfeng Motor,1969,False
+17,FangChengBao,China,Shenzhen,BYD Auto Co.,2023,True
+18,Faraday Future,United States,"Los Angeles, CA",Faraday Future,2014,True
+19,Ferrari,Italy,Maranello,Ferrari N.V.,1939,False
+20,Fiat,Italy,Turin,Stellantis,1899,False
+21,Ford,United States,"Dearborn, MI",Ford Motor Company,1903,False
+22,GAC Aion,China,Guangzhou,GAC Group,2017,True
+23,GWM,International,Global,GWM,2000,False
+24,Geely,China,Hangzhou,Zhejiang Geely Holding,1986,False
+25,Genesis,South Korea,Seoul,Hyundai Motor Group,2015,False
+26,HiPhi,China,Shanghai,Human Horizons,2019,True
+27,Honda,Japan,Tokyo,Honda Motor Co.,1948,False
+28,Hongqi,China,Changchun,FAW Group,1958,False
+29,Hyundai,South Korea,Seoul,Hyundai Motor Group,1967,False
+30,IM Motors,China,Shanghai,SAIC / Alibaba,2020,True
+31,Jaguar,United Kingdom,Coventry,Tata Motors,1922,False
+32,Karma Automotive,United States,"Irvine, CA",Wanxiang Group,2014,False
+33,Kia,South Korea,Seoul,Hyundai Motor Group,1944,False
+34,Land Rover,United Kingdom,Gaydon,Tata Motors,1948,False
+35,Leapmotor,China,Hangzhou,Leapmotor / Stellantis,2015,True
+36,Lexus,Japan,Nagoya,Toyota Motor Corp,1989,False
+37,Lightyear,United States,Global,Lightyear,2000,False
+38,Lotus,United Kingdom,Hethel,Geely Holding,1952,False
+39,Lucid,United States,"Newark, CA",Lucid Motors,2007,True
+40,M-Hero,China,Wuhan,Dongfeng Motor,2022,True
+41,MG Motor,United Kingdom,London,SAIC Motor,1924,False
+42,Maserati,Italy,Modena,Stellantis,1914,False
+43,Mazda,International,Global,Mazda,2000,False
+44,McLaren,United Kingdom,Woking,McLaren Group,1963,False
+45,Mercedes-Benz,Germany,Stuttgart,Mercedes-Benz Group,1926,False
+46,Mini,United Kingdom,Oxford,BMW Group,1959,False
+47,Mitsubishi,Japan,Tokyo,Renault-Nissan-Mitsubishi,1970,False
+48,NIO,China,Shanghai,NIO Inc,2014,True
+49,Nammi,China,Wuhan,Dongfeng Motor,2023,True
+50,Nissan,Japan,Yokohama,Renault-Nissan-Mitsubishi,1933,False
+51,Opel,Germany,Global,Opel,2000,False
+52,Peugeot,France,Paris,Stellantis,1896,False
+53,Polestar,Sweden,Gothenburg,Geely Holding,1996,True
+54,Porsche,Germany,Stuttgart,Volkswagen Group,1931,False
+55,Renault,France,Boulogne-Billancourt,Renault Group,1899,False
+56,Rimac,Croatia,Sveta Nedelja,Rimac Group,2009,True
+57,Rising Auto,China,Shanghai,SAIC Motor,2020,True
+58,Rivian,United States,"Irvine, CA",Rivian Automotive,2009,True
+59,Roewe,China,Shanghai,SAIC Motor,2006,False
+60,Rolls-Royce,United Kingdom,Goodwood,BMW Group,1906,False
+61,SEAT,Germany,Global,SEAT,2000,False
+62,Smart,Germany,Leinfelden-Echterdingen,Mercedes-Benz / Geely,1994,True
+63,Sono,United States,Global,Sono,2000,False
+64,Tata Motors,India,Mumbai,Tata Sons,1945,False
+65,Tesla,United States,"Austin, TX",Tesla Inc,2003,True
+66,Toyota,Japan,Toyota City,Toyota Motor Corp,1937,False
+67,VinFast,Vietnam,Haiphong,Vingroup,2017,True
+68,Volkswagen,Germany,Wolfsburg,Volkswagen Group,1937,False
+69,Volvo,Sweden,Gothenburg,Geely Holding,1927,False
+70,Voyah,China,Wuhan,Dongfeng Motor,2020,True
+71,XPeng,China,Guangzhou,XPeng Motors,2014,True
+72,YangWang,China,Shenzhen,BYD Auto Co.,2023,True
+73,Zeekr,China,Ningbo,Geely Holding,2021,True
+74,Škoda,Czech Republic,Mladá Boleslav,Volkswagen Group,1895,False

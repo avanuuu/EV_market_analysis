@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Interactive Tableau Dashboards — EV Market Analysis{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 1.5rem;">
+  <span class="hero-tag" style="background-color: #e0f2fe; color: #0369a1; border: none;">Executive BI Integration</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">Interactive Tableau Business Intelligence Dashboards</h1>
+  <p style="color: #64748b; font-size: 1rem; max-width: 900px;">
+    Explore multi-dimensional visual analytics across sales trajectories, battery electrochemical trade-offs, and global manufacturing capacity.
+  </p>
+</div>
+
+<!-- KPI Mini Cards -->
+<div class="kpi-grid" style="margin-bottom: 1.5rem;">
+  <div class="kpi-card" style="padding: 1rem 1.25rem;">
+    <div class="kpi-label">Active Database Models</div>
+    <div class="kpi-value" style="font-size: 1.5rem;">{{ kpis.total_vehicle_models }}</div>
+    <div class="kpi-subtext">Cataloged across 74 brands</div>
+  </div>
+  <div class="kpi-card" style="padding: 1rem 1.25rem;">
+    <div class="kpi-label">Average Range</div>
+    <div class="kpi-value" style="font-size: 1.5rem;">{{ kpis.avg_driving_range_km }} km</div>
+    <div class="kpi-subtext">WLTP certified baseline</div>
+  </div>
+  <div class="kpi-card" style="padding: 1rem 1.25rem;">
+    <div class="kpi-label">Average Battery Capacity</div>
+    <div class="kpi-value" style="font-size: 1.5rem;">{{ kpis.avg_battery_capacity_kwh }} kWh</div>
+    <div class="kpi-subtext">Gross pack energy</div>
+  </div>
+  <div class="kpi-card" style="padding: 1rem 1.25rem;">
+    <div class="kpi-label">Average Base Price</div>
+    <div class="kpi-value" style="font-size: 1.5rem;">{{ kpis.avg_vehicle_price_usd }}</div>
+    <div class="kpi-subtext">USD normalized MSRP</div>
+  </div>
+</div>
+
+<!-- Tableau Embedded Container -->
+<div class="tableau-wrapper">
+  <div class="tableau-controls">
+    <div class="tableau-btn-group">
+      <button class="tab-btn active" data-view="EVMarketOverview" data-base-url="{{ dashboard_url }}">
+        Dashboard A: EV Market Overview
+      </button>
+      <button class="tab-btn" data-view="BatteryandPerformance" data-base-url="{{ dashboard_url }}">
+        Dashboard B: Battery & Performance
+      </button>
+      <button class="tab-btn" data-view="ManufacturerandGeography" data-base-url="{{ dashboard_url }}">
+        Dashboard C: Manufacturer & Geography
+      </button>
+    </div>
+
+    <div style="font-size: 0.82rem; color: #64748b; display: flex; align-items: center; gap: 0.75rem;">
+      <span>Tableau Source: <strong>tableau/ev_market_analysis.twb</strong></span>
+      <a href="{{ url_for('main.methodology') }}" class="btn btn-secondary" style="color: var(--primary); padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+        Schema & Notes
+      </a>
+    </div>
+  </div>
+
+  <!-- Tableau Iframe / Embed Viewport -->
+  <div class="tableau-iframe-box">
+    <!-- Embed Iframe with live Tableau Public URL or Fallback state -->
+    <iframe 
+      id="tableauDashboardFrame"
+      src="{{ dashboard_url }}?:embed=yes&:showVizHome=no&:toolbar=yes&:tabs=no" 
+      title="Tableau Electric Vehicle Market Analysis Dashboard"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Tableau Configuration & Desktop Instructions -->
+  <div style="margin-top: 1.5rem; padding: 1.25rem; background-color: #f8fafc; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.88rem; color: #475569;">
+    <h4 style="color: #0f172a; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+      <span>ℹ️</span> Tableau Desktop Connection & Deployment Instructions
+    </h4>
+    <p style="margin-bottom: 0.5rem;">
+      The Tableau workbook file <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">tableau/ev_market_analysis.twb</code> is fully pre-configured in this repository.
+    </p>
+    <ul style="padding-left: 1.5rem; line-height: 1.6;">
+      <li><strong>Local Desktop Evaluation:</strong> Open <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">tableau/ev_market_analysis.twb</code> in Tableau Desktop or Tableau Public. It is pre-linked to the verified dataset <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">data/processed/ev_market_master_tableau.csv</code>.</li>
+      <li><strong>Enterprise MySQL Live Connection:</strong> In Tableau, select <em>Data &gt; New Data Source &gt; MySQL</em>, enter host <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">localhost:3306</code>, database <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">ev_market_db</code>, and connect to view <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">v_executive_market_kpis</code>.</li>
+      <li><strong>Custom Embed URL:</strong> If you publish the workbook to your own Tableau Server or Tableau Public account, update <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">TABLEAU_DASHBOARD_URL</code> in your <code style="background-color: #e2e8f0; padding: 0.15rem 0.4rem; border-radius: 4px;">.env</code> file.</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

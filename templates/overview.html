@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}Market Overview — Electric Vehicle Business Intelligence{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+  <span class="hero-tag" style="background-color: #dbeafe; color: #1e40af; border: none;">Executive Analytical Briefing</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">Global EV Market Overview & Analytics</h1>
+  <p style="color: #64748b; font-size: 1.05rem; max-width: 900px;">
+    In-depth operational analysis covering global adoption trends, OEM market share competition, vehicle category economics, and battery technology distributions.
+  </p>
+</div>
+
+<!-- KPI Mini Cards -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">2023 Global EV Volume</div>
+    <div class="kpi-value">14.37M</div>
+    <div class="kpi-subtext">Cars, Buses, Vans & Commercial Trucks</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Pure BEV Share</div>
+    <div class="kpi-value">70.0%</div>
+    <div class="kpi-subtext">10.06M pure battery electrics sold</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Market Concentration (CR4)</div>
+    <div class="kpi-value">51.6%</div>
+    <div class="kpi-subtext">Tesla, BYD, VW Group & MG/SAIC</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Fastest Growing Segment</div>
+    <div class="kpi-value" style="font-size: 1.5rem;">Electric SUVs</div>
+    <div class="kpi-subtext">Capturing 56.1% of active vehicle models</div>
+  </div>
+</div>
+
+<!-- Table 1: Top 10 Global Manufacturers -->
+<div class="table-card">
+  <div class="table-header-row">
+    <div>
+      <h3 class="table-title">Top 10 Global Electric Vehicle Manufacturers (2023 BEV Sales)</h3>
+      <p style="font-size: 0.85rem; color: #64748b;">Grounded in verified OEM corporate filings, IEA Outlook, and CleanTechnica data.</p>
+    </div>
+    <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">View on Dashboard C →</a>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Manufacturer</th>
+        <th>Country of Origin</th>
+        <th>Parent Corporate Group</th>
+        <th>2023 BEV Sales</th>
+        <th>Global BEV Share</th>
+        <th>Business Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for oem in top_oems %}
+      <tr>
+        <td><strong>#{{ oem.rank }}</strong></td>
+        <td><strong>{{ oem.name }}</strong></td>
+        <td>{{ oem.country }}</td>
+        <td>{{ oem.parent_group }}</td>
+        <td>{{ "{:,.0f}".format(oem.units_sold) }}</td>
+        <td><strong>{{ oem.market_share_pct }}%</strong></td>
+        <td>
+          {% if oem.is_pure_ev %}
+            <span class="badge badge-pure">Pure-Play EV</span>
+          {% else %}
+            <span style="font-size: 0.8rem; color: #64748b;">Legacy OEM</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Table 2: Vehicle Category Performance Matrix -->
+<div class="table-card">
+  <div class="table-header-row">
+    <div>
+      <h3 class="table-title">Vehicle Category Engineering & Market Performance</h3>
+      <p style="font-size: 0.85rem; color: #64748b;">Cross-category comparison across 1,149 cataloged vehicle models.</p>
+    </div>
+    <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">View on Dashboard B →</a>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Vehicle Category</th>
+        <th>Cataloged Models</th>
+        <th>Min Range</th>
+        <th>Avg Range (WLTP)</th>
+        <th>Max Range</th>
+        <th>Avg Battery Pack</th>
+        <th>Energy Efficiency</th>
+        <th>Average Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cat in cat_perf %}
+      <tr>
+        <td><strong>{{ cat.category }}</strong></td>
+        <td>{{ cat.model_count }}</td>
+        <td>{{ cat.min_range_km }} km</td>
+        <td><strong>{{ cat.avg_range_km }} km</strong></td>
+        <td>{{ cat.max_range_km }} km</td>
+        <td>{{ cat.avg_battery_kwh }} kWh</td>
+        <td>{{ cat.avg_consumption_wh_km }} Wh/km</td>
+        <td><strong>{{ cat.avg_price_usd }}</strong></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Table 3: Battery Technology Adoption -->
+<div class="table-card">
+  <div class="table-header-row">
+    <div>
+      <h3 class="table-title">Battery Technology Chemistry Comparison (NMC vs. LFP)</h3>
+      <p style="font-size: 0.85rem; color: #64748b;">Market adoption share, electrochemical performance, and pricing brackets.</p>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Chemistry Code</th>
+        <th>Full Chemistry Name</th>
+        <th>Active Models</th>
+        <th>Adoption Share</th>
+        <th>Avg Range</th>
+        <th>Avg Battery Pack</th>
+        <th>Avg Peak DC Charge</th>
+        <th>Average MSRP</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bat in battery_summary %}
+      <tr>
+        <td>
+          <span class="badge {% if bat.chemistry_code == 'NMC' %}badge-nmc{% elif bat.chemistry_code == 'LFP' %}badge-lfp{% else %}badge-nca{% endif %}">
+            {{ bat.chemistry_code }}
+          </span>
+        </td>
+        <td><strong>{{ bat.chemistry_name }}</strong></td>
+        <td>{{ bat.model_count }}</td>
+        <td><strong>{{ bat.market_share_pct }}%</strong></td>
+        <td>{{ bat.avg_range_km }} km</td>
+        <td>{{ bat.avg_battery_kwh }} kWh</td>
+        <td>{{ bat.avg_charge_kw }} kW</td>
+        <td><strong>{{ bat.avg_price_usd }}</strong></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Table 4: Annual Historical Sales Expansion -->
+<div class="table-card">
+  <div class="table-header-row">
+    <div>
+      <h3 class="table-title">Longitudinal EV Market Expansion (2015–2023)</h3>
+      <p style="font-size: 0.85rem; color: #64748b;">Verified IEA Global EV Data Explorer historical sales volumes.</p>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>BEV Sales (Units)</th>
+        <th>PHEV Sales (Units)</th>
+        <th>Total Annual Volume</th>
+        <th>BEV Penetration</th>
+        <th>Market Phase</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in trends|reverse %}
+      <tr>
+        <td><strong>{{ t.year }}</strong></td>
+        <td>{{ "{:,.0f}".format(t.bev_units) }}</td>
+        <td>{{ "{:,.0f}".format(t.phev_units) }}</td>
+        <td><strong>{{ "{:,.0f}".format(t.total_units) }}</strong></td>
+        <td><span class="trend-up">{{ t.bev_share_pct }}%</span></td>
+        <td>
+          {% if t.year >= 2021 %}
+            <span class="badge" style="background-color: #d1fae5; color: #065f46;">Mass Market Acceleration</span>
+          {% elif t.year >= 2018 %}
+            <span class="badge" style="background-color: #dbeafe; color: #1e40af;">Early Adopter Expansion</span>
+          {% else %}
+            <span class="badge" style="background-color: #f1f5f9; color: #64748b;">Pilot / Niche Market</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

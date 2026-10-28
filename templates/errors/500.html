@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}500 — Server Error | EV Market Analysis{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 5rem 1.5rem; max-width: 600px; margin: 0 auto;">
+  <div style="font-size: 4rem; font-weight: 800; color: #ef4444; margin-bottom: 0.5rem;">500</div>
+  <h2 style="font-size: 1.8rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Internal System Error</h2>
+  <p style="color: #64748b; font-size: 1.05rem; margin-bottom: 2rem;">
+    An internal server exception occurred while processing the request. Technical details have been logged securely.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center;">
+    <a href="{{ url_for('main.index') }}" class="btn btn-primary">Return to Executive Dashboard</a>
+    <a href="{{ url_for('main.health') }}" class="btn btn-secondary" style="color: var(--primary);">Check System Health</a>
+  </div>
+</div>
+{% endblock %}

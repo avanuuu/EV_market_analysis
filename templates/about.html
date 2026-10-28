@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}About the Project — EV Market Analysis Platform{% endblock %}
+
+{% block content %}
+
+<div style="margin-bottom: 2rem;">
+  <span class="hero-tag" style="background-color: #f1f5f9; color: #334155; border: none;">System Architecture & Design</span>
+  <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin-top: 0.5rem;">About the Electric Vehicle Market Analysis Platform</h1>
+  <p style="color: #64748b; font-size: 1.05rem; max-width: 900px;">
+    An end-to-end data analytics, business intelligence, and web engineering capstone project designed for academic evaluation, portfolio presentation, and automotive strategy demonstration.
+  </p>
+</div>
+
+<!-- Technology Stack Grid -->
+<div class="table-card" style="margin-bottom: 2rem;">
+  <h3 class="table-title" style="margin-bottom: 1.25rem;">Required Technology Stack Implementation</h3>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 1rem; color: #0f172a; margin-bottom: 0.35rem;">Programming & Backend</h4>
+      <p style="font-size: 0.88rem; color: #475569;">
+        <strong>Python 3.11 & Flask 3.1</strong><br>
+        Modular application factory architecture, parameterized SQL querying, REST API endpoints, security headers, and production-safe debug configurations.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 1rem; color: #0f172a; margin-bottom: 0.35rem;">Relational Database</h4>
+      <p style="font-size: 0.88rem; color: #475569;">
+        <strong>MySQL 8.0+ / 9.0+ & SQLAlchemy / PyMySQL</strong><br>
+        Normalized 3NF relational schema with 6 core tables, InnoDB engine, utf8mb4 encoding, foreign keys, CHECK constraints, composite indexes, and analytical views.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 1rem; color: #0f172a; margin-bottom: 0.35rem;">Business Intelligence & Visualization</h4>
+      <p style="font-size: 0.88rem; color: #475569;">
+        <strong>Tableau Desktop / Tableau Public</strong><br>
+        Dedicated workbook XML (<code style="background-color: #e2e8f0; padding: 0.1rem 0.3rem; border-radius: 3px;">tableau/ev_market_analysis.twb</code>) featuring Dashboards A, B, C, calculated fields, and a 5-scene analytical story.
+      </p>
+    </div>
+    <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+      <h4 style="font-size: 1rem; color: #0f172a; margin-bottom: 0.35rem;">Testing & Data Quality</h4>
+      <p style="font-size: 0.88rem; color: #475569;">
+        <strong>pytest & Python unittest</strong><br>
+        Automated test suites covering web routes, HTTP status codes, data pipeline integrity, numerical boundaries, and database query executions.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- System Health and Diagnostics -->
+<div class="table-card" style="margin-bottom: 2rem;">
+  <div class="table-header-row">
+    <h3 class="table-title">System Diagnostics & Database Connectivity</h3>
+    <a href="{{ url_for('main.health') }}" target="_blank" class="btn btn-secondary" style="font-size: 0.82rem; color: var(--primary);">
+      View /health JSON Endpoint ↗
+    </a>
+  </div>
+
+  <div style="background-color: #f8fafc; padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.9rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+      <div>Database Engine: <strong>MySQL (InnoDB)</strong></div>
+      <div>Connection Host: <strong>{{ db_status.host }}:{{ db_status.port }}</strong></div>
+      <div>Target Database: <strong>{{ db_status.database }}</strong></div>
+      <div>
+        Status: 
+        {% if db_status.connected %}
+          <span class="badge" style="background-color: #d1fae5; color: #065f46;">ONLINE (Connected)</span>
+        {% else %}
+          <span class="badge" style="background-color: #fef3c7; color: #92400e;">OFFLINE (Resilient Fallback Mode)</span>
+        {% endif %}
+      </div>
+      <div>Vehicles Record Count: <strong>{{ db_status.vehicles_count }} models</strong></div>
+      <div>Diagnostic Note: <em>{{ db_status.message }}</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- Academic & Portfolio Rubric Compliance -->
+<div class="table-card">
+  <h3 class="table-title" style="margin-bottom: 1rem;">Academic & Portfolio Evaluation Highlights</h3>
+  <ul style="padding-left: 1.5rem; line-height: 1.7; font-size: 0.92rem; color: #475569;">
+    <li><strong>Authentic Data Foundations:</strong> Real data sourced from OpenEV Data canonical repository, IEA Global EV Outlook, and EV-Database. Synthetic benchmarks are transparently isolated, documented, and labeled.</li>
+    <li><strong>Relational Purity:</strong> Normalized MySQL schema enforcing primary keys, foreign keys, CHECK constraints, and optimized index trees.</li>
+    <li><strong>Advanced SQL Engineering:</strong> 14 production queries utilizing CTEs, <code style="background-color: #e2e8f0; padding: 0.1rem 0.3rem; border-radius: 3px;">LAG()</code>, <code style="background-color: #e2e8f0; padding: 0.1rem 0.3rem; border-radius: 3px;">DENSE_RANK()</code>, running sums, safe division with <code style="background-color: #e2e8f0; padding: 0.1rem 0.3rem; border-radius: 3px;">NULLIF()</code>, and multi-table joins.</li>
+    <li><strong>Cohesive Visual Design:</strong> Professional executive layout avoiding generic placeholder components or mockups.</li>
+    <li><strong>Version Control Ready:</strong> Clean Git repository layout with explicit <code style="background-color: #e2e8f0; padding: 0.1rem 0.3rem; border-radius: 3px;">.gitignore</code>, credential isolation, and comprehensive technical documentation.</li>
+  </ul>
+</div>
+
+{% endblock %}

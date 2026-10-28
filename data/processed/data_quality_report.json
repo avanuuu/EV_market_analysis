@@ -1,0 +1,39 @@
+{
+  "execution_timestamp": "2026-10-28T18:12:18.080789Z",
+  "data_pipeline_status": "SUCCESS",
+  "raw_record_counts": {
+    "open_ev_data_specs.csv": 1189,
+    "ev_specs_pricing_efficiency.csv": 102,
+    "iea_global_ev_sales_2024.csv": 12654
+  },
+  "cleaned_record_counts": {
+    "manufacturers": 74,
+    "battery_technologies": 5,
+    "manufacturing_locations": 20,
+    "vehicles": 1149,
+    "sales": 872,
+    "customer_ratings": 20,
+    "master_tableau": 1149
+  },
+  "validation_metrics": {
+    "vehicles_min_range_km": 25.0,
+    "vehicles_max_range_km": 929.6,
+    "vehicles_avg_range_km": 443.93,
+    "vehicles_min_battery_kwh": 5.5,
+    "vehicles_max_battery_kwh": 212.0,
+    "vehicles_avg_battery_kwh": 76.03,
+    "vehicles_min_price_usd": 22600.0,
+    "vehicles_max_price_usd": 195243.48,
+    "vehicles_avg_price_usd": 42001.49,
+    "null_values_in_primary_keys": 0,
+    "duplicate_vehicles_detected_and_resolved": 40
+  },
+  "harmonization_rules_applied": [
+    "Manufacturer aliases mapped to canonical OEM names",
+    "Battery chemistries standardized to LFP, NMC, NCA, Sodium-Ion, Solid-State",
+    "Vehicle categories mapped to standard automotive taxonomy (SUV, Sedan, Hatchback, Pickup, Van, Sports Car)",
+    "Currency harmonized from EUR to USD using 1.08 baseline rate",
+    "Missing usable battery capacities estimated at 94% of gross pack capacity",
+    "Missing driving ranges calculated from effective battery capacity and vehicle category consumption model"
+  ]
+}

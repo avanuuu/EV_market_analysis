@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Electric Vehicle Market Analysis — End-to-End Automotive Business Intelligence and Strategic Analytics Platform">
+  <title>{% block title %}EV Market Analysis — Business Intelligence Platform{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="{{ url_for('main.index') }}" class="nav-brand">
+        <div class="nav-brand-logo">⚡</div>
+        <div>
+          <span>EV Analytics</span>
+          <span style="font-size: 0.72rem; display: block; font-weight: 400; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Automotive BI Intelligence</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="{{ url_for('main.index') }}" class="nav-link {% if request.endpoint == 'main.index' %}active{% endif %}">Home</a></li>
+        <li><a href="{{ url_for('main.overview') }}" class="nav-link {% if request.endpoint == 'main.overview' %}active{% endif %}">Market Overview</a></li>
+        <li><a href="{{ url_for('main.dashboard') }}" class="nav-link {% if request.endpoint == 'main.dashboard' %}active{% endif %}">Tableau Dashboards</a></li>
+        <li><a href="{{ url_for('main.story') }}" class="nav-link {% if request.endpoint == 'main.story' %}active{% endif %}">Tableau Story</a></li>
+        <li><a href="{{ url_for('main.vehicles') }}" class="nav-link {% if request.endpoint == 'main.vehicles' %}active{% endif %}">Vehicle Catalog</a></li>
+        <li><a href="{{ url_for('main.findings') }}" class="nav-link {% if request.endpoint == 'main.findings' %}active{% endif %}">Recommendations</a></li>
+        <li><a href="{{ url_for('main.methodology') }}" class="nav-link {% if request.endpoint == 'main.methodology' %}active{% endif %}">Methodology</a></li>
+        <li><a href="{{ url_for('main.about') }}" class="nav-link {% if request.endpoint == 'main.about' %}active{% endif %}">About</a></li>
+      </ul>
+
+      <!-- Database Status Indicator -->
+      <div class="nav-db-status {% if db_status and db_status.connected %}status-online{% else %}status-offline{% endif %}">
+        <span class="status-dot"></span>
+        <span>{% if db_status and db_status.connected %}MySQL 3306 Connected{% else %}MySQL Resilient Fallback{% endif %}</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Body Content -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Executive Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>⚡ EV Market Intelligence</h4>
+        <p style="font-size: 0.85rem; line-height: 1.6; color: #94a3b8;">
+          A full-stack Business Intelligence & Data Analytics system analyzing global electric vehicle adoption, battery chemistry bifurcation, and manufacturing distribution.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Business Personas</h4>
+        <ul>
+          <li><a href="{{ url_for('main.findings') }}#strategy">Market Strategy Director</a></li>
+          <li><a href="{{ url_for('main.findings') }}#bi-manager">Automotive BI Manager</a></li>
+          <li><a href="{{ url_for('main.findings') }}#sustainability">Sustainable Mobility Analyst</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Core Assets</h4>
+        <ul>
+          <li><a href="{{ url_for('main.dashboard') }}">Executive Tableau Dashboards</a></li>
+          <li><a href="{{ url_for('main.story') }}">5-Scene Analytical Story</a></li>
+          <li><a href="{{ url_for('main.vehicles') }}">1,149 Vehicle Model Explorer</a></li>
+          <li><a href="{{ url_for('main.methodology') }}">Relational Schema & DDL</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>System Architecture</h4>
+        <p style="font-size: 0.85rem; color: #94a3b8;">
+          Stack: Python 3.11, Flask, MySQL, Tableau Desktop, HTML5/CSS3.<br>
+          Standards: Git/GitHub ready, normalized schema, parametrized SQL.
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Electric Vehicle Market Analysis Project — Academic, Portfolio & Business Evaluation</span>
+      <span>Verified Data Sources: OpenEV Data, IEA Global EV Outlook, EV Database</span>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
