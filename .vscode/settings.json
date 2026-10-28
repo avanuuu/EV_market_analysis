@@ -1,0 +1,19 @@
+{
+  "python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+  "python.testing.unittestEnabled": true,
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py"
+  ],
+  "python.testing.pytestEnabled": false,
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  }
+}

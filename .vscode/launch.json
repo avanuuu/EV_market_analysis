@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Launch Flask App (Port 5001)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/app.py",
+      "env": {
+        "FLASK_APP": "app.py",
+        "FLASK_ENV": "development",
+        "FLASK_DEBUG": "1",
+        "PORT": "5001"
+      },
+      "jinja": true,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python: Run Master Test Suite",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_tests.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python: Execute Data Cleaning Pipeline",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/clean_data.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python: Execute SQL Analysis Queries",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/run_analysis_queries.py",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Python: Load MySQL Database",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/load_database.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}

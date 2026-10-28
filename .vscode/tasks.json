@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. Run Flask Web Application",
+      "type": "shell",
+      "command": "python3",
+      "args": ["app.py"],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "2. Run Master Test Suite",
+      "type": "shell",
+      "command": "python3",
+      "args": ["run_tests.py"],
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "3. Clean and Harmonize EV Datasets",
+      "type": "shell",
+      "command": "python3",
+      "args": ["scripts/clean_data.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "4. Validate Data Quality & Integrity",
+      "type": "shell",
+      "command": "python3",
+      "args": ["scripts/validate_data.py"],
+      "problemMatcher": []
+    },
+    {
+      "label": "5. Run Analytical SQL Queries",
+      "type": "shell",
+      "command": "python3",
+      "args": ["scripts/run_analysis_queries.py"],
+      "problemMatcher": []
+    }
+  ]
+}
